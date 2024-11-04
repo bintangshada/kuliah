@@ -8,8 +8,8 @@
       "args": [],
       "stopAtEntry": false,
       "externalConsole": true,
-      "cwd": "c:/Users/USER/Downloads",
-      "program": "c:/Users/USER/Downloads/build/Debug/outDebug",
+      "cwd": "d:/kuliah/cpp/algorithms",
+      "program": "d:/kuliah/cpp/algorithms/build/Debug/outDebug",
       "MIMode": "gdb",
       "miDebuggerPath": "gdb",
       "setupCommands": [
