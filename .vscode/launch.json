@@ -8,8 +8,8 @@
       "args": [],
       "stopAtEntry": false,
       "externalConsole": true,
-      "cwd": "d:/kuliah/cpp/pertemuan7",
-      "program": "d:/kuliah/cpp/pertemuan7/build/Debug/outDebug",
+      "cwd": "c:/Users/USER/Downloads",
+      "program": "c:/Users/USER/Downloads/build/Debug/outDebug",
       "MIMode": "gdb",
       "miDebuggerPath": "gdb",
       "setupCommands": [

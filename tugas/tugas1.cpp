@@ -24,13 +24,13 @@ bool kabisat(int tahun) {
 
 float rupiahToDollar(float rupiah){
     hasil = rupiah / 15000;
-    cout << "Hasil dari " << rupiah << " rupiah ke dalam dollar adalah " << hasil << " dollar";
+    cout << "Hasil dari " << rupiah << " rupiah ke dalam dollar adalah " << hasil << " dollar\n";
     return hasil;
 }
 
 float dollarToRupiah(float dollar){
     int hasil = dollar * 15000;
-    cout << "Hasil dari " << dollar << " dollar ke dalam rupiah adalah " << hasil << " rupiah";
+    cout << "Hasil dari " << dollar << " dollar ke dalam rupiah adalah " << hasil << " rupiah\n";
     return hasil;
 }
 
@@ -38,13 +38,13 @@ float bmi(float tinggi, float beratBadan) {
     float hasil = beratBadan / (tinggi * tinggi);
     cout << "Hasil BMI adalah " << hasil;
     if(hasil >= 30){
-        cout << " (Obesitas)";
+        cout << " (Obesitas)\n";
     } else if (hasil >= 25){
-        cout << " (Gemuk)";
+        cout << " (Gemuk)\n";
     } else if (hasil >= 18.5){
-        cout << " (Normal)";
+        cout << " (Normal)\n";
     } else {
-        cout << " (Kurus)";
+        cout << " (Kurus)\n";
     }
     return hasil;
 }
@@ -62,14 +62,16 @@ int main() {
         }
         switch (pilih) {
             case 1:
+                system("cls");
                 cout << "Masukkan tahun : ";
                 cin >> tahun;
                 kabisat(tahun);
                 if(kabisat(tahun)) {
-                    cout << "Tahun kabisat";
+                    cout << "Tahun kabisat\n";
                 } else {
-                    cout << "Bukan tahun kabisat";
+                    cout << "Bukan tahun kabisat\n";
                 }
+                system("pause");
                 break;
             case 2:
                 int pilih;
@@ -94,9 +96,10 @@ int main() {
                             dollarToRupiah(dollar);
                             break;
                         default:
-                            cout << "Gaada pilihan " << pilih << " kocak";
+                            cout << "Gaada pilihan " << pilih << " kocak \n";
                             break;
                     }
+                    system("pause");
                 } while (pilih != 0);
                 system("cls");
                 break;
@@ -113,8 +116,9 @@ int main() {
                 break;
             default:
                 system("cls");
-                cout << "Gaada pilihan " << pilih << " kocak";
+                cout << "Gaada pilihan " << pilih << " kocak\n";
                 break; 
         }
+        system("pause");
     } while (pilih != 0);
 }
