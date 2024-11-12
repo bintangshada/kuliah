@@ -10,6 +10,14 @@ int faktorial(int x) {
     return x * faktorial(x - 1);
 }
 
+int p(int n, int r) {
+    int penyebut = n - r;
+    int n_faktorial = faktorial(n);
+    int n_r_faktorial = faktorial(penyebut);
+    int hasil = n_faktorial / n_r_faktorial;
+    return hasil;
+}
+
 int permutasiDenganPengulangan(const string& str) {
     map<char, int> frekuensi;
     std::size_t n = str.length(); // Menggunakan std::size_t untuk menghindari peringatan konversi
@@ -50,60 +58,89 @@ int main() {
     do {
         system("cls");
         cout << "Pilih Menu\n";
-        cout << "1. Contoh soal 1\n";
-        cout << "2. Contoh soal 2\n";
-        cout << "3. Contoh soal 3\n";
+        cout << "1. Materi Permutasi\n";
+        cout << "2. Contoh soal\n";
+        cout << "3. Rumus Permutasi\n";
         cout << "4. Keluar\n";
         cin >> pilih;
         switch(pilih) {
             case 1: {
                 system("cls");
-                cout << "Contoh soal 1: \n";
-                cout << "Berapa banyak string yang dapat dibentuk dengan\n menggunakan huruf-huruf dari kata MISSISSIPPI?\n";
+                cout << "Definisi 1: Permutasi adalah jumlah urutan berbeda dari pengaturan objek-objek\n";
+                cout << "\nPermutasi merupakan bentuk khusus aplikasi kaidah perkalian.\n";
+                cout << "\nMisalkan jumlah objek adalah n, maka\n";
+                cout << "- urutan pertama dipilih dari n objek,\n";
+                cout << "- urutan kedua dipilih dari n- 1 objek,\n";
+                cout << "- urutan ketiga dipilih dari n- 2 objek,\n";
+                cout << "...\n";
+                cout << "- urutan terakhir dipilih dari 1 objek yang tersisa.\n";
+                cout << "\nMenurut kaidah perkalian, permutasi dari n objek adalah\n";
+                cout << "\tn(n - 1) (n - 2) ... (2)(1) = n!\n\n";
                 system("pause");
-                system("cls");
-                cout << "Penyelesaian\n";
-                cout << "S = {M,I,S,S,I,S,S,I,P,P,I}\n";
-                cout << "\t huruf M muncul 1 kali\n";
-                cout << "\t huruf I muncul 4 kali\n";
-                cout << "\t huruf S muncul 4 kali\n";
-                cout << "\t huruf P muncul 2 kali\n";
-                cout << "n = 1 + 4 + 4 + 2 = 11 buah = jumlah elemen himpunan S\n";
-                system("pause");
-                system("cls");
-                cout << "Ada dua car yang dapat digu1nakan untuk menyelesaikan\n persoalan ini, keduanya memberikan hasil yang sama\n";
-                cout << "\nCara 1: Jumlah string =\n";
-                cout << "P(11; 1,4,4,2) =\n";
-                cout << "11! / (1! * 4! * 4! * 2!) =\n";
-                cout << "39916800 / 1152 =\n";
-                cout << "34650\n";
-                system("pause");
-                system("cls");
-                cout << "Cara 2: Jumlah string =\n";
-                cout << "C(11, 1) * C(10, 4) * C(6, 4) * C(2, 2) =\n";
-                cout << "11! / (1! * 10!) * 10! / (4! * 6!) * 6! / (4! * 2!) * 2! / (2! * 0!) =\n";
-                cout << "11! / (1!) (4!) (4!) (2!) =34650\n";
-                system("pause");
-                cout << "Masukkan kata: ";
-                cin >> kata;
-                int hasil = permutasiDenganPengulangan(kata);
-                cout << "Hasil: " << hasil << endl;
                 break;
             }
             case 2: {
-                // Contoh soal 2
-                cout << "Masukkan kata: ";
-                cin >> kata;
-                int hasil = permutasiDenganPengulangan(kata);
-                cout << "Hasil: " << hasil << endl;
-                break;
+                int pilih
+                do{
+                    cout << "1. Contoh Soal 1\n";
+                    cout << "2. Contoh Soal 2\n";
+                    cout << "3. Contoh Soal 3\n";
+                    cout << "4. Keluar\n";
+                    switch(pilih) {
+                        case 1 : {
+                            system("cls");
+                            cout << "Contoh soal 1: \n";
+                            cout << "Berapa banyak string yang dapat dibentuk dengan\n menggunakan huruf-huruf dari kata MISSISSIPPI?\n";
+                            system("pause");
+                            system("cls");
+                            cout << "Penyelesaian\n";
+                            cout << "S = {M,I,S,S,I,S,S,I,P,P,I}\n";
+                            cout << "\t huruf M muncul 1 kali\n";
+                            cout << "\t huruf I muncul 4 kali\n";
+                            cout << "\t huruf S muncul 4 kali\n";
+                            cout << "\t huruf P muncul 2 kali\n";
+                            cout << "n = 1 + 4 + 4 + 2 = 11 buah = jumlah elemen himpunan S\n";
+                            system("pause");
+                            system("cls");
+                            cout << "Ada dua car yang dapat digu1nakan untuk menyelesaikan\n persoalan ini, keduanya memberikan hasil yang sama\n";
+                            cout << "\nCara 1: Jumlah string =\n\n";
+                            cout << "P(11; 1,4,4,2) =\n";
+                            cout << "\t11!\n";
+                            cout << "------------------  = 39916800 / 1152 = 34650\n";
+                            cout << "(1! * 4! * 4! * 2!)\n\n";
+                            system("pause");
+                            system("cls");
+                            cout << "Cara 2: Jumlah string =\n";
+                            cout << "C(11, 1) * C(10, 4) * C(6, 4) * C(2, 2) =\n";
+                            cout << "11! / (1! * 10!) * 10! / (4! * 6!) * 6! / (4! * 2!) * 2! / (2! * 0!) =\n";
+                            cout << "11! / (1!) (4!) (4!) (2!) =34650\n";
+                            system("pause");
+                            cout << "Masukkan kata: ";
+                            cin >> kata;
+                            int hasil = permutasiDenganPengulangan(kata);
+                            cout << "Hasil: " << hasil << endl;
+                            break;
+                        }
+                        case 2 : {
+                            break;
+                        }
+                        case 3 : {
+                            break;
+                        }
+                    }
+                }
+                while(pilih != 4)
             }
             case 3: {
                 // Contoh soal 3
-                cout << "Masukkan kata: ";
-                cin >> kata;
-                int hasil = permutasiDenganPengulangan(kata);
+                int n,r;
+                cout << "Masukkan pembilang: ";
+                cin >> n;
+                cout << "Masukkan penyebut: ";
+                cin >> r;
+                int hasil = p(n,r);
                 cout << "Hasil: " << hasil << endl;
+                system("pause");
                 break;
             }
             case 4: {
