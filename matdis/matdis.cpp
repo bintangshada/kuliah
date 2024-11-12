@@ -4,7 +4,6 @@
 
 using namespace std;
 
-// Fungsi untuk menghitung faktorial
 int faktorial(int x) {
     if (x <= 1) return 1;
     return x * faktorial(x - 1);
@@ -21,8 +20,8 @@ int p(int n, int r) {
 int permutasiDenganPengulangan(const string& str) {
     map<char, int> frekuensi;
     std::size_t n = str.length(); // Menggunakan std::size_t untuk menghindari peringatan konversi
-
-    cout << "Menghitung frekuensi setiap karakter dalam string \"" << str << "\"\n";
+    system("cls");
+    cout << "Menghitung frekuensi setiap karakter dalam string \"" << str << "\"\n\n";
     for (char c : str) {
         frekuensi[c]++;
     }
@@ -32,22 +31,22 @@ int permutasiDenganPengulangan(const string& str) {
     }
 
     int pembilang = faktorial(static_cast<int>(n));
-    cout << "Pembilang (faktorial dari panjang string " << n << "): " << pembilang << endl;
+    cout << "\nPembilang (faktorial dari panjang string " << n << "): " << pembilang << endl;
     cout << "Rumus: " << n << "! = " << pembilang << endl;
 
     int penyebut = 1;
 
-    cout << "Menghitung penyebut berdasarkan frekuensi karakter\n";
+    cout << "\nMenghitung penyebut berdasarkan frekuensi karakter\n";
     for (auto& pair : frekuensi) {
         penyebut *= faktorial(pair.second);
-        cout << "Faktorial dari frekuensi karakter '" << pair.first << "' (" << pair.second << "): " << faktorial(pair.second) << endl;
+        cout << "\nFaktorial dari frekuensi karakter '" << pair.first << "' (" << pair.second << "): " << faktorial(pair.second) << endl;
         cout << "Rumus: " << pair.second << "! = " << faktorial(pair.second) << endl;
     }
 
-    cout << "Penyebut (hasil kali faktorial dari frekuensi karakter): " << penyebut << endl;
+    cout << "\nPenyebut (hasil kali faktorial dari frekuensi karakter): " << penyebut << endl;
 
     int hasil = pembilang / penyebut;
-    cout << "Rumus: " << pembilang << " / " << penyebut << " = " << hasil << endl;
+    cout << "\nRumus: " << pembilang << " / " << penyebut << " = " << hasil << endl;
     cout << "Hasil permutasi dengan pengulangan: " << hasil << endl;
     return hasil;
 }
@@ -80,12 +79,14 @@ int main() {
                 break;
             }
             case 2: {
-                int pilih
+                int pilih;
                 do{
+                    system("cls");
                     cout << "1. Contoh Soal 1\n";
                     cout << "2. Contoh Soal 2\n";
                     cout << "3. Contoh Soal 3\n";
                     cout << "4. Keluar\n";
+                    cin >> pilih;
                     switch(pilih) {
                         case 1 : {
                             system("cls");
@@ -115,11 +116,6 @@ int main() {
                             cout << "11! / (1! * 10!) * 10! / (4! * 6!) * 6! / (4! * 2!) * 2! / (2! * 0!) =\n";
                             cout << "11! / (1!) (4!) (4!) (2!) =34650\n";
                             system("pause");
-                            cout << "Masukkan kata: ";
-                            cin >> kata;
-                            int hasil = permutasiDenganPengulangan(kata);
-                            cout << "Hasil: " << hasil << endl;
-                            break;
                         }
                         case 2 : {
                             break;
@@ -129,19 +125,47 @@ int main() {
                         }
                     }
                 }
-                while(pilih != 4)
+                while(pilih != 4);
             }
             case 3: {
-                // Contoh soal 3
-                int n,r;
-                cout << "Masukkan pembilang: ";
-                cin >> n;
-                cout << "Masukkan penyebut: ";
-                cin >> r;
-                int hasil = p(n,r);
-                cout << "Hasil: " << hasil << endl;
-                system("pause");
-                break;
+                int pilih;
+                do{
+                    system("cls");
+                    cout << "1. Rumus permutasi\n";
+                    cout << "2. Rumus permutasi kata\n";
+                    cout << "3. Keluar\n";
+                    cin >> pilih;
+                    switch(pilih) {
+                        case 1 : {
+                            // Contoh soal 3
+                            int n,r;
+                            system("cls");
+                            cout << "P(n,r) = \n";
+                            cout << "       n\n";
+                            cout << "----------------\n";
+                            cout << "    (n - r)\n";
+                            cout << "Masukkan n : ";
+                            cin >> n;
+                            cout << "Masukkan r : ";
+                            cin >> r;
+                            if (r > n ) {
+                                cout << r << " harus kurang dari sama dengan " << n << endl;
+                            } else {
+                                int hasil = p(n,r);    
+                                cout << "Hasil: " << hasil << endl;
+                            }
+                            system("pause");
+                            break;
+                        }
+                        case 2 : {
+                            cout << "Masukkan kata: ";                            
+                            cin >> kata;
+                            int hasil = permutasiDenganPengulangan(kata);
+                            system("pause");
+                            break;
+                        }
+                    }
+                }while(pilih != 3);
             }
             case 4: {
                 cout << "Keluar dari program.\n";
